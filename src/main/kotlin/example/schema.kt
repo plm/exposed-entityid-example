@@ -16,7 +16,7 @@ class User(id: EntityID<Int>) : IntEntity(id) {
 }
 
 object Messages : IntIdTable() {
-    val owner = reference("owner_id", Users.id)
+    val owner = reference("owner_id", Users)
     val content = text("content")
 }
 
