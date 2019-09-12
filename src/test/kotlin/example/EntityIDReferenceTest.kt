@@ -7,7 +7,9 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 class EntityIDReferenceTest : StringSpec({
 
-    Database.connect("jdbc:postgresql://localhost:54321/example?user=example&password=example", driver = "org.postgresql.Driver")
+    (System.getenv("PGPORT") ?: "54321").let { port ->
+        Database.connect("jdbc:postgresql://localhost:$port/example?user=example&password=example", driver = "org.postgresql.Driver")
+    }
 
     transaction {
         SchemaUtils.createMissingTablesAndColumns(Users, Messages)

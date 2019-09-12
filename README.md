@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/plm/exposed-entityid-example.svg?branch=master)](https://travis-ci.org/plm/exposed-entityid-example)
+
 Exposed EntityID reference example
 ===
 

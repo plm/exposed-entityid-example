@@ -1,0 +1,17 @@
+language: java
+
+jdk: openjdk8
+
+services:
+  - postgresql
+
+addons:
+  postgresql: 9.6
+
+before_script:
+  - psql -U postgres -c "CREATE ROLE example NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN PASSWORD 'example';"
+  - psql -U postgres -c "CREATE DATABASE example OWNER example ENCODING 'UTF8';"
+
+env:
+  global:
+    - PGPORT=5432
